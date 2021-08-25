@@ -2,43 +2,75 @@
 <html>
 
 <head>
+    <link rel="preload" as="image" href="sleepy_cat.png">
+    <link rel="preload" as="image" href="cat_01.png">
+    <link rel="preload" as="image" href="cat_02.png">
+    <link rel="preload" as="image" href="cat_03.png">
+    <link rel="preload" as="image" href="cat_04.png">
+    <link rel="preload" as="image" href="cat_05.png">
+    <link rel="preload" as="image" href="background_01.png">
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <title>Lecznica praca dyplomowa</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="mobile.css">
 </head>
 
 <body>
 
     <!-- Navbar -->
     <div class="navbar">
-        <div class="container flex">
-            <div class="logo">
-                <img class="logo" src="logo.png"></img>
-            </div>
-            <div class="name">
-                <h1 class="title">Kocimiętka</h1>
-                <h2 class="subtitle">Gabinet Weterynaryjny</h2>
+        <div class="container flex mobile">
+            <div class="flex max-width">
+                <img id="ham" class="ham" src="ham.png">
+                <div class="flex logo-container">
+                    <img class="logo" src="logo.png"></img>
+                    <div class="name">
+                        <h1 class="title">Kocimiętka</h1>
+                        <h2 class="subtitle">Gabinet Weterynaryjny</h2>
+                    </div>
+                </div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">O nas</a></li>
-                    <li><a href="#">Godziny</a></li>
-                    <li><a href="#">Oferta</a></li>
-                    <li><a href="#">Kontakt</a></li>
-                    <li><a href="#">Fundacja</a></li>
+                    <li><a href="#doctors">O nas</a></li>
+                    <li><a href="#opening-hours">Godziny</a></li>
+                    <li><a href="#offer">Oferta</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="https://przytulkota.pl/">Fundacja</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 
     <div class="banner">
-        <img src="banner_01.png">
+        <img id="banner" src="">
     </div>
 
-    <section class="doctors">
-        <div class="container">
+    <script type="text/javascript">
+        function randombanner() {
+            var banners = ['banner_01.png', 'banner_02.png', 'banner_03.png', 'banner_04.png', 'banner_05.png', 'banner_06.png', 'banner_07.png', 'banner_08.png'];
+            var banner = banners[Math.floor(Math.random() * banners.length)];
+            document.getElementById("banner").src = banner;
+        }
+        randombanner();
+        document.getElementById("banner").addEventListener("click", randombanner);
+        document.getElementById("ham").addEventListener("click", function (e) {
+            var nav = document.getElementsByTagName("nav")[0];
+            if (nav.style.display === "flex") {
+                nav.style.display = "none";
+                document.getElementById("ham").src = 'ham.png';
+            } else {
+                nav.style.display = "flex";
+                document.getElementById("ham").src = 'x.png';
+            }
+        });
+    </script>
+
+    <section id="doctors" class="doctors">
+        <div class="header-container">
             <h2>NASZ ZESPÓŁ</h2>
         </div>
         <div class="container doctors-grid">
@@ -73,28 +105,210 @@
         </div>
     </section>
 
-    <section class="opening_hours">
-        <div class="container">
+    <section id="opening-hours" class="opening-hours">
+        <div class="header-container">
             <h2>GODZINY OTWARCIA</h2>
         </div>
-        <div class="container grid">
-            <div></div>
-            <div>
-                <p>Gabinet weterynaryjny Kocimiętka jest czynny od poniedziałku do piątku w godzinach 12:00 – 19:00
-                    oraz w soboty i niedziele w godzinach 10:00 – 14:00.
+        <div class="container opening-hours-grid">
+            <div class="opening-hours-text">
+                <p>Gabinet weterynaryjny Kocimiętka jest czynny <b>od poniedziałku do piątku w godzinach 12:00 –
+                        19:00</b>
+                    oraz <b>w soboty i niedziele w godzinach 10:00 – 14:00.</b>
                     Możecie przyjść do nas w godzinach pracy gabinetu lub umówić wizytę na konkretną godzinę.</p>
-
+                <br>
                 <p>Co drugi wtorek przyjmuje u nas lek. wet. Agata Grudzień-Stasiak z VetOptic – Okulistyka Zwierząt.
                     Termin wizyty należy umówić telefonicznie.</p>
-
-                <p>Zapraszamy serdecznie!</p>
+                <br>
+                <center><p><b>Zapraszamy serdecznie!</b></p></center>
+                <img id="krs" src="krs.png" style="width: 100%;">
+            </div>
+            <div class="schedule">
+                <table>
+                    <tr>
+                        <th>Luty</th>
+                        <th>Anna Wojtczak</th>
+                        <th>Patrycja Pach</th>
+                        <th>Okulista</th>
+                    </tr>
+                    <tr>
+                        <td>1 Pn.</td>
+                        <td></td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2 Wt.</td>
+                        <td></td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3 Śr.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4 Cz.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5 Pt.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6 Sb.</td>
+                        <td>10:00-14:00</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7 Nd.</td>
+                        <td>10:00-14:00</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>8 Pn.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>9 Wt.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td>17:00-19:00</td>
+                    </tr>
+                    <tr>
+                        <td>10 Śr.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>11 Cz.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>12 Pt.</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>13 Sb.</td>
+                        <td></td>
+                        <td>10:00-14:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>14 Nd.</td>
+                        <td></td>
+                        <td>10:00-14:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>15 Pn.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>16 Wt.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>17 Śr.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>18 Cz.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>19 Pt.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>20 Sb.</td>
+                        <td>10:00-14:00</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>21 Nd.</td>
+                        <td>10:00-14:00</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>22 Pn.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>23 Wt.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td>17:00-19:00</td>
+                    </tr>
+                    <tr>
+                        <td>24 Śr.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>25 Cz.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>26 Pt.</td>
+                        <td>11:00-19:00</td>
+                        <td>11:00-19:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>27 Sb.</td>
+                        <td></td>
+                        <td>10:00-14:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>28 Nd.</td>
+                        <td></td>
+                        <td>10:00-14:00</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <center><button id="show-more">Pokaż więcej</button></center>
             </div>
         </div>
     </section>
 
-    <section class="offer">
-        <div class="container">
+    <section id="offer" class="offer">
+        <div class="header-container">
             <h2>OFERTA</h2>
+        </div>
+        <div class="container">
             <p>Nasz gabinet weterynaryjny zajmuje się leczeniem zwierząt towarzyszących człowiekowi: kotów, psów oraz
                 gryzoni
                 – zarówno wolno żyjących, jak i dzikusów potrzebujących pomocy.
@@ -109,7 +323,8 @@
                     <li>szczepienia przeciwko wściekliźnie,</li>
                     <li>profilaktyka przeciwpasożytnicza (pasożyty wewnętrzne i zewnętrzne),</li>
                     <li>znakowanie i identyfikacja zwierząt - chipowanie,</li>
-                    <li>szybkie testy diagnostyczne: FIV, FeLV, FPV, CPV, CDV, (panleukopenia u kotów, parwowiroza u psów oraz nosówka u psów)
+                    <li>szybkie testy diagnostyczne: FIV, FeLV, FPV, CPV, CDV, (panleukopenia u kotów, parwowiroza u
+                        psów oraz nosówka u psów)
                         - testy płytkowe,</li>
                     <li>wystawianie paszportów.</li>
                 </ul>
@@ -130,7 +345,7 @@
             <div class="offer-text">
                 <h3>BADANIA LABORATORYJNE</h3>
                 <ul>
-                <p>Badania są przeprowadzane w współpracy z zewnętrznym laboratorium.</p>
+                    <p>Badania są przeprowadzane w współpracy z zewnętrznym laboratorium.</p>
                     <li>Badanie hematologiczne i biochemiczne krwi,</li>
                     <li>badanie moczu,</li>
                     <li>badanie kału,</li>
@@ -170,13 +385,36 @@
         </div>
     </section>
 
-    <section class="contact">
-        <div class="container">
+    <section id="contact" class="contact">
+        <div class="header-container">
             <h2>KONTAKT</h2>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1233.6559001754235!2d19.37424968282612!3d51.80046314316436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bb557468e3bb7%3A0xb005816d8c9c7858!2sGabinet%20Weterynaryjny%20Fundacji%20Przytul%20Kota%20-%20KOCIMI%C4%98TKA!5e0!3m2!1spl!2spl!4v1628706811219!5m2!1spl!2spl"
-                width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="container">
+            <div class="contact-place">
+                <div class="contact-place-left">
+                    <div class="location">
+                        <img src="location.png">
+                        <p>ul. Aleksandrowska 74/3B </br> 91-224 Łódź</p>
+                    </div>
+                    <div class="phone">
+                        <img src="phone.png">
+                        <p>gabinet@przytulkota.pl</br>tel: 798 917 558</p>
+                    </div>
+                    <div class="time">
+                        <img src="time.png">
+                        <p>12:00 - 19:00 (Pn-Pt)</br>10:00 - 14:00 (Sb-Nd)</p>
+                    </div>
+                </div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1233.6559001754235!2d19.37424968282612!3d51.80046314316436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bb557468e3bb7%3A0xb005816d8c9c7858!2sGabinet%20Weterynaryjny%20Fundacji%20Przytul%20Kota%20-%20KOCIMI%C4%98TKA!5e0!3m2!1spl!2spl!4v1628706811219!5m2!1spl!2spl"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="header-container">
             <h2>SKONTAKTUJ SIĘ Z NAMI</h2>
+        </div>
+        <div class="container">
             <form action="" method="get" class="form">
                 <div class="form-item">
                     <label for="name">Imię</label>
@@ -192,7 +430,7 @@
                 </div>
                 <div class="form-item">
                     <label for="tel">Telefon (opcjonalnie)</label>
-                    <input type="tel" name="tel" id="tel" required>
+                    <input type="tel" name="tel" id="tel">
                 </div>
                 <div class="form-textarea">
                     <label for="story">Treść wiadomości</label>
@@ -204,8 +442,61 @@
             </form>
 
         </div>
-        </div>
     </section>
+
+    <img id="paw" src="paw.png" onclick="scrollTop();"><a href="#"></a></img>
+
+    <script type="text/javascript">
+        var surname = document.getElementById("surname").getBoundingClientRect();
+        if (window.innerWidth < 600) {
+            surname = document.getElementById("name").getBoundingClientRect();
+        }
+        var x = surname.left + surname.width - surname.width / 2.1 + document.documentElement.scrollLeft;
+        var y = surname.top - surname.height * 0.71 * (surname.width / 200) + document.documentElement.scrollTop;
+        var newImage = document.createElement("img");
+        newImage.setAttribute('src', 'sleepy_cat.png');
+        newImage.setAttribute('class', 'overlays');
+        newImage.style.left = x + "px";
+        newImage.style.top = y + "px";
+        newImage.style.width = surname.width / 2 + "px";
+        newImage.addEventListener('onclick', function (e) {
+            document.getElementById("surname").focus();
+        });
+        document.body.appendChild(newImage);
+
+        function setImage() {
+            var surname = document.getElementById("surname").getBoundingClientRect();
+            if (window.innerWidth < 600) {
+                surname = document.getElementById("name").getBoundingClientRect();
+            }
+            var x = surname.left + surname.width - surname.width / 2.1 + document.documentElement.scrollLeft;
+            var y = surname.top - surname.height * 0.71 * (surname.width / 200) + document.documentElement.scrollTop;
+            newImage.style.left = x + "px";
+            newImage.style.top = y + "px";
+            newImage.style.width = surname.width / 2 + "px";
+        }
+        window.onresize = setImage;
+        document.addEventListener('scroll', function (e) {
+            setImage();
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.getElementById("paw").style.display = "block";
+            } else {
+                document.getElementById("paw").style.display = "none";
+            }
+        });
+
+        document.getElementById("paw").addEventListener('click', function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        document.getElementById("show-more").addEventListener('click', function () {
+            document.querySelectorAll(".schedule table tr:nth-child(n+10)").forEach(function(item) {
+                item.style.display = 'table-row';
+            });
+            document.getElementById("show-more").style.display = 'none';
+        });
+    </script>
 
 </body>
 
