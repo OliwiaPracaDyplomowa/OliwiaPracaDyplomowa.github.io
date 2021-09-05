@@ -2,6 +2,10 @@
 <html>
 
 <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <link rel="preload" as="image" href="sleepy_cat.png">
     <link rel="preload" as="image" href="cat_01.png">
     <link rel="preload" as="image" href="cat_02.png">
@@ -16,17 +20,18 @@
     <title>Lecznica praca dyplomowa</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="mobile.css">
+
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <div class="navbar">
+    <div class="navbar sticky">
         <div class="container flex mobile">
             <div class="flex max-width">
                 <img id="ham" class="ham" src="ham.png">
                 <div class="flex logo-container">
-                    <img class="logo" src="logo.png"></img>
+                    <img class="logo" src="logo.webp" onclick="window.open('/');"></img>
                     <div class="name">
                         <h1 class="title">Kocimiętka</h1>
                         <h2 class="subtitle">Gabinet Weterynaryjny</h2>
@@ -50,9 +55,20 @@
     </div>
 
     <script type="text/javascript">
+        var banners = [];
+        var bannerid = '';
+
+        function updatebanner() {
+            if (window.innerWidth < 800) {
+                banners = ['banner_01_600.webp', 'banner_02_600.webp', 'banner_03_600.webp', 'banner_04_600.webp', 'banner_05_600.webp', 'banner_06_600.webp', 'banner_07_600.webp', 'banner_08_600.webp'];
+            } else {
+                banners = ['banner_01.webp', 'banner_02.webp', 'banner_03.webp', 'banner_04.webp', 'banner_05.webp', 'banner_06.webp', 'banner_07.webp', 'banner_08.webp'];
+            }
+        }
         function randombanner() {
-            var banners = ['banner_01.png', 'banner_02.png', 'banner_03.png', 'banner_04.png', 'banner_05.png', 'banner_06.png', 'banner_07.png', 'banner_08.png'];
-            var banner = banners[Math.floor(Math.random() * banners.length)];
+            updatebanner();
+            bannerid = Math.floor(Math.random() * banners.length);
+            var banner = banners[bannerid];
             document.getElementById("banner").src = banner;
         }
         randombanner();
@@ -119,7 +135,9 @@
                 <p>Co drugi wtorek przyjmuje u nas lek. wet. Agata Grudzień-Stasiak z VetOptic – Okulistyka Zwierząt.
                     Termin wizyty należy umówić telefonicznie.</p>
                 <br>
-                <center><p><b>Zapraszamy serdecznie!</b></p></center>
+                <center>
+                    <p><b>Zapraszamy serdecznie!</b></p>
+                </center>
                 <img id="krs" src="krs.png" style="width: 100%;">
             </div>
             <div class="schedule">
@@ -415,7 +433,7 @@
             <h2>SKONTAKTUJ SIĘ Z NAMI</h2>
         </div>
         <div class="container">
-            <form action="" method="get" class="form">
+            <form class="form">
                 <div class="form-item">
                     <label for="name">Imię</label>
                     <input type="text" name="name" id="name" required>
@@ -437,7 +455,7 @@
                     <textarea id="story" name="story" rows="5" cols="33"></textarea>
                 </div>
                 <div class="form-submit">
-                    <input type="submit" value="WYŚLIJ">
+                    <input type="submit" value="WYŚLIJ" onclick='submitalert()'>
                 </div>
             </form>
 
@@ -446,15 +464,22 @@
 
     <img id="paw" src="paw.png" onclick="scrollTop();"><a href="#"></a></img>
 
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Wiadomość wysłana!</p>
+        </div>
+    </div>
+
     <script type="text/javascript">
         var surname = document.getElementById("surname").getBoundingClientRect();
-        if (window.innerWidth < 600) {
+        if (window.innerWidth < 800) {
             surname = document.getElementById("name").getBoundingClientRect();
         }
         var x = surname.left + surname.width - surname.width / 2.1 + document.documentElement.scrollLeft;
         var y = surname.top - surname.height * 0.71 * (surname.width / 200) + document.documentElement.scrollTop;
         var newImage = document.createElement("img");
-        newImage.setAttribute('src', 'sleepy_cat.png');
+        newImage.setAttribute('src', 'sleepy_cat.webp');
         newImage.setAttribute('class', 'overlays');
         newImage.style.left = x + "px";
         newImage.style.top = y + "px";
@@ -475,7 +500,12 @@
             newImage.style.top = y + "px";
             newImage.style.width = surname.width / 2 + "px";
         }
-        window.onresize = setImage;
+        window.addEventListener('resize', function (e) {
+            setImage();
+            updatebanner();
+            var banner = banners[bannerid];
+            document.getElementById("banner").src = banner;
+        });
         document.addEventListener('scroll', function (e) {
             setImage();
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -491,11 +521,18 @@
         });
 
         document.getElementById("show-more").addEventListener('click', function () {
-            document.querySelectorAll(".schedule table tr:nth-child(n+10)").forEach(function(item) {
+            document.querySelectorAll(".schedule table tr:nth-child(n+10)").forEach(function (item) {
                 item.style.display = 'table-row';
             });
             document.getElementById("show-more").style.display = 'none';
         });
+
+        function submitalert() {
+            var form = document.getElementsByTagName('form');
+            if (form.checkValidity()) {
+                alert("Wysłano wiadomość");
+            }
+        }
     </script>
 
 </body>

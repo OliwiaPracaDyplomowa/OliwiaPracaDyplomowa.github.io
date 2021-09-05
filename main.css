@@ -8,7 +8,17 @@
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.7;
+    font-size: 100%;
 }
+
+/* .sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+    background-color: #181931;
+    z-index: 10000;
+} */
+
 
 textarea {
     border: none;
@@ -123,7 +133,7 @@ html {
     color: #12F2AE;
     font-family: 'Oswald', sans-serif;
     line-height: 0.4;
-    font-size: 16pt;
+    font-size: 15pt;
 }
 
 /* MENU */
@@ -135,6 +145,10 @@ html {
 .navbar {
     color: #E7E7E7;
     height: 120px;
+}
+
+nav {
+
 }
 
 .navbar ul {
@@ -161,6 +175,7 @@ html {
 /* BANNER */
 
 .banner {
+    cursor: pointer;
     /* width: 100%; */
     /* object-position: -800px; */
     /* width: 500px; */
