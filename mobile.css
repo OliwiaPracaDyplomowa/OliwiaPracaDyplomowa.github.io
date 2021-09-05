@@ -95,6 +95,10 @@
         /* padding: 0 10px; */
     }
 
+    .doctors-grid {
+        row-gap: 0;
+    }
+
     .doctors-grid img {
         margin-top: auto;
         margin-bottom: 0;
@@ -202,15 +206,6 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 0.5fr 1fr;
-    }
-
-    .location, .phone, .time {
-        /* padding-bottom: 0; */
-        /* height: 140px; */
-    }
-
-    .location, .phone {
-        padding-bottom: 0;
     }
 
     iframe {

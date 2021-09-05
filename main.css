@@ -49,6 +49,7 @@ h2 {
 
 h2 {
     font-weight: 700;
+    font-size: 20pt;
 }
 
 h3 {
@@ -64,10 +65,6 @@ img {
 -webkit-filter: blur(0);
 transform: translateZ(0);
 -webkit-transform: translateZ(0);
-    /* image-rendering: auto; */
-    /* image-rendering: crisp-edges; */
-    /* image-rendering: pixelated; */
-    /* width: 100%; */
 }
 
 html {
@@ -176,37 +173,12 @@ nav {
 
 .banner {
     cursor: pointer;
-    /* width: 100%; */
-    /* object-position: -800px; */
-    /* width: 500px; */
-    /* object-fit: none; */
-    /* overflow-x:hidden; */
-    /* background: url('banner_01.png')  #1d2f93 ; */
-    /* background-repeat: no-repeat; */
-    /* background-size: contain; */
-    /* height: 360px; */
-
-    /* height: 750px; */
-    /* background-position: center center; */
-    /* background-repeat: no-repeat; */
-    /* background-image: url('banner_01.png'); */
-    /* background-size: length; */
 }
 
 .banner img {
     width: 100%;
-    
-    /* background-size: cover;  */
-    /* height : 800px; */
-    /* object-position: -800px; */
-
-    /* width: 150%; */
+    height: auto;
 }
-
-.banner {
-    /* width: 900px; */
-}
-
 
 /* DOCTORS */
 
@@ -214,6 +186,7 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 5em;
 }
 
 .doctors img {
@@ -245,14 +218,14 @@ nav {
 }
 
 .doctor {
-    
+    height: auto;
 }
 
 /* OPENING HOURS */
 
 .opening-hours {
     background-color: #ffd273;
-    background-image: url("background_01.png") ;
+    background-image: url("background_01.webp") ;
     background-position: center;
     background-size: cover;
     color: #181931;
@@ -326,9 +299,16 @@ nav {
 
 #krs {
     margin-top: 32px;
+    width: auto;
+    height: auto;
 }
 
 /* OFFER */
+
+.cat {
+    width: auto;
+    height: auto;
+}
 
 .offer {
     /* padding-left: 10px;
